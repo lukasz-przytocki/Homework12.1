@@ -5,12 +5,26 @@ import java.util.Scanner;
     static Person readData(Person person){
         Scanner scanner = new Scanner(System.in);
         System.out.printf("Enter first name: ");
-         person.setFirstName(scanner.nextLine());
+        try {
+            person.setFirstName(scanner.nextLine());
+        }catch (NameUndefinedException e){
+            System.out.println(e.getMessage());
+        }
+
         System.out.printf("Enter last name: ");
-         person.setLastName(scanner.nextLine());
+        try {
+            person.setLastName(scanner.nextLine());
+        }catch (NameUndefinedException e){
+            System.out.println(e.getMessage());
+        }
         System.out.printf("Enter your age: ");
-         person.setAge(scanner.nextInt());
-         scanner.nextLine();
+        try {
+
+            person.setAge(scanner.nextInt());
+            scanner.nextLine();
+        }catch (IncorrectAgeException e){
+            System.out.println(e.getMessage());
+        }
         System.out.printf("Enter pesel: ");
          person.setPesel(scanner.nextInt());
          scanner.nextLine();

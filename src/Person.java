@@ -4,43 +4,28 @@ public class Person {
     private int age;
     private int pesel;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws NameUndefinedException {
         if(firstName!=null && firstName.length()>2) {
             this.firstName = firstName;
         }else {
-            throw new IncorrectAgeException();
+            throw new NameUndefinedException("Name should be longer than 2 letters");
         }
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws NameUndefinedException {
         if(lastName!=null && lastName.length()>2) {
             this.lastName = lastName;
         }else {
-            throw new NameUndefinedException();
+            throw new NameUndefinedException("Surname should be longer than 2 letters");
         }
     }
-    public int getAge() {
-        return age;
-    }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws IncorrectAgeException {
         if(age>0) {
             this.age = age;
         }else{
-            throw new IncorrectAgeException();
+            throw new IncorrectAgeException("Age should be higher than 0!");
         }
-    }
-
-    public int getPesel() {
-        return pesel;
     }
 
     public void setPesel(int pesel) {
@@ -50,6 +35,6 @@ public class Person {
     @Override
     public String toString() {
         return  "First name: " + firstName+ ", Last name: " + lastName + ", age: " +
-                age + ", pesel: " + pesel;
+                age + " pesel: " + pesel;
     }
 }

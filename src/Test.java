@@ -4,7 +4,5 @@ public class Test {
 
         ReadPersonalData.readData(person);
         System.out.println(person.toString());
-
-
     }
 }
